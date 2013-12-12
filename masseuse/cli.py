@@ -16,4 +16,5 @@ def argparser():
     group.add_argument("--kernel", "-k", metavar="STR", dest="kernel", default="gaussian", type=str, choices=["gaussian", "tricubic"], help="kernel function. (\"gaussian\" or \"tricubic\")")
     group.add_argument("--parameter", "-p", metavar="N", dest="parameter", default=15, type=float, help="characteristic dimension of kernel. default: 15")
 
+    # That's all, folks!
     return parser
