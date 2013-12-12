@@ -8,14 +8,16 @@ def standard(n):
 
 def main(number, length, density=0.05):
     offset = 0
+    values = standard(length)
     while number > 0:
         if np.random.random() <= density:
             date = datetime.date.today() + datetime.timedelta(offset)
-            data = standard(length)
+            deltas = standard(length)
+            values += deltas
             number -= 1
 
             print("{0}\t{1}".format(date.strftime("%Y-%m-%d"),
-                                    "\t".join(map(str, data))))
+                                    "\t".join(map(str, values))))
         offset += 1
 
 if __name__ == "__main__":
