@@ -6,6 +6,8 @@ For your nice time series!
 
 Package delivers a way to kernel-smooth your time series, hooray! Useful for sparse/sporadic data and or erratic samples, i.e. from composite distributions.
 
+![A massaged time series.](/doc/example.png "Gaussian kernel averaging!")
+
 
 Quickstart
 ----------
