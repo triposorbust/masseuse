@@ -18,7 +18,7 @@ def lintimes(times, lpad=0, rpad=0, step=1):
             in xrange(0-lpad, tdelta+rpad, step)]
 
 def main(args):
-    parser = makeparser("%Y-%m-%d")
+    parser = makeparser(args.format)
     kernel = kernels(args.kernel, args.parameter)
     otimes = [parser(line.split()[0])
               for line in args.infile
