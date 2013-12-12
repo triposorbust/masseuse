@@ -1,15 +1,15 @@
-from argparse import ArgumentParser
+from argparse import ArgumentParser,FileType
 from sys import stdout
 
 def argparser():
     """Returns an argument parser that handles CLI."""
     parser = ArgumentParser(prog="python massage.py", description="kernel-weighted time series density.", epilog="Andy's free (as in beer) software.")
 
-    parser.add_argument("infile", metavar="<filename>", type=file, nargs=1, help="input time-series tsv files.")
+    parser.add_argument("infile", metavar="<filename>", type=FileType("r"), help="input time-series tsv files.")
 
     group = parser.add_argument_group("input/output options")
-    group.add_argument("--output", "-o", metavar="STR", dest="outfile", type=file, default=stdout, help="file for writing output time-series. default: stdout")
-    group.add_argument("--format", "-f", metavar="STR", dest="format", type=str, default="%%Y-%%m-%%d", help="format string for parsing dates. default: \"%%Y-%%m-%%d\"")
+    group.add_argument("--output", "-o", metavar="STR", dest="outfile", type=FileType("w"), default=stdout, help="file for writing output time-series. default: stdout")
+    group.add_argument("--format", "-f", metavar="STR", dest="format", type=str, default="%Y-%m-%d", help="format string for parsing dates. default: \"%%Y-%%m-%%d\"")
 
     group = parser.add_argument_group("density estimation options")
     group.add_argument("--step", "-s", metavar="N", dest="step", default=1, type=float, help="step size for codomain time-series. default: 1")

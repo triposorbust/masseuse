@@ -6,7 +6,7 @@ def massage(parse, kernel, times, infh, outfh):
     def breakline(line):
         ws = line.split()
         return parse(ws[0]),np.array(ws[1:],dtype='float')
-    tvs = map(breakline, infh)
+    tvs = map(breakline, filter(lambda l: not l.startswith("#"), infh))
     mat = np.vstack([v for _,v in tvs])
     for time in times:
         wts = np.array([kernel(abs((time - t).days)) for t,_ in tvs])

@@ -25,7 +25,7 @@ def main(args):
               if not line.startswith("#")]
     ntimes = lintimes(otimes, args.step)
     args.infile.seek(0)
-    massage(parser, kernels, ntimes, args.infile, args.outfile)
+    massage(parser, kernel, ntimes, args.infile, args.outfile)
 
 if __name__ == "__main__":
     main(argparser().parse_args())
